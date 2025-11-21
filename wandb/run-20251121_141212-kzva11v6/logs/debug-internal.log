@@ -1,0 +1,14 @@
+{"time":"2025-11-21T14:12:12.806841097Z","level":"INFO","msg":"stream: starting","core version":"0.22.3"}
+{"time":"2025-11-21T14:12:13.02551826Z","level":"INFO","msg":"stream: created new stream","id":"kzva11v6"}
+{"time":"2025-11-21T14:12:13.025610982Z","level":"INFO","msg":"handler: started","stream_id":"kzva11v6"}
+{"time":"2025-11-21T14:12:13.025799666Z","level":"INFO","msg":"stream: started","id":"kzva11v6"}
+{"time":"2025-11-21T14:12:13.025828647Z","level":"INFO","msg":"sender: started","stream_id":"kzva11v6"}
+{"time":"2025-11-21T14:12:13.025830557Z","level":"INFO","msg":"writer: started","stream_id":"kzva11v6"}
+{"time":"2025-11-21T14:58:47.146545548Z","level":"INFO","msg":"stream: closing","id":"kzva11v6"}
+{"time":"2025-11-21T14:58:47.147303286Z","level":"ERROR","msg":"sender: failed to upload run summary: write /home/jovyan/image-colorization/wandb/run-20251121_141212-kzva11v6/files/wandb-summary.json: no space left on device"}
+{"time":"2025-11-21T14:58:47.14832054Z","level":"ERROR","msg":"sender: failed to upload run config: write /home/jovyan/image-colorization/wandb/run-20251121_141212-kzva11v6/files/config.yaml: no space left on device"}
+{"time":"2025-11-21T14:58:47.447310363Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-11-21T14:58:47.58957734Z","level":"INFO","msg":"handler: closed","stream_id":"kzva11v6"}
+{"time":"2025-11-21T14:58:47.589754744Z","level":"ERROR","msg":"writer: failed closing store: transactionlog: error closing writer: write /home/jovyan/image-colorization/wandb/run-20251121_141212-kzva11v6/run-kzva11v6.wandb: no space left on device"}
+{"time":"2025-11-21T14:58:47.590168364Z","level":"INFO","msg":"sender: closed","stream_id":"kzva11v6"}
+{"time":"2025-11-21T14:58:47.590183234Z","level":"INFO","msg":"stream: closed","id":"kzva11v6"}

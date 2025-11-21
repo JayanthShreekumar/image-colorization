@@ -1,0 +1,18 @@
+Starting Training Epoch 1
+  0%|                                                                                                                                                                                                   | 0/57 [00:02<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/jovyan/image-colorization/main.py", line 158, in <module>
+    trainer.train()
+  File "/home/jovyan/image-colorization/UNetVAE/train.py", line 73, in train
+    recon, mu, logvar = model(inputs)
+                        ^^^^^^^^^^^^^
+  File "/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jovyan/image-colorization/UNetVAE/model.py", line 100, in forward
+    up = self.up1(self.dec1(torch.cat([up, s4], dim=1)))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Sizes of tensors must match except in dimension 1. Expected size 8 but got size 16 for tensor number 1 in the list.

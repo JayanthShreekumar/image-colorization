@@ -1,0 +1,133 @@
+import torch
+import glob
+import sys
+import os
+import wandb
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+import numpy as np
+import torch.nn.functional as F
+
+from torch.utils.data import DataLoader
+from tqdm import tqdm
+
+from UNetVAE.model import UNetVAE
+from colorize_data import ColorizeData
+from metrics import compute_ssim, compute_deltaE
+
+def vae_loss(recon_x, x, mu, logvar):
+    recon_loss = F.mse_loss(recon_x, x, reduction='mean')
+    kl_loss = -0.5 * torch.mean(1 + logvar - mu.pow(2) - logvar.exp())
+    return recon_loss + 0.0001 * kl_loss
+
+class Trainer_UNetVAE:
+    def __init__(self, train_paths, val_paths, latent_dim, lpips,
+                 epochs=50, batch_size=8, learning_rate=1e-3, num_workers=4):
+
+        self.train_paths = train_paths
+        self.val_paths  = val_paths
+        self.epochs     = epochs
+        self.batch_size = batch_size
+        self.learning_rate = learning_rate
+        self.num_workers   = num_workers
+        self.latent_dim    = latent_dim
+        self.lpips = lpips
+
+        self.device = torch.device("cuda:2" if torch.cuda.is_available() else "cpu")
+
+
+    def train(self):
+        train_dataset = ColorizeData(self.train_paths)
+        train_loader = DataLoader(train_dataset,
+                                  batch_size=self.batch_size,
+                                  shuffle=True,
+                                  num_workers=self.num_workers,
+                                  pin_memory=True)
+
+        val_dataset = ColorizeData(self.val_paths)
+        val_loader = DataLoader(val_dataset,
+                                batch_size=self.batch_size,
+                                shuffle=False,
+                                num_workers=self.num_workers,
+                                pin_memory=True)
+
+        model = UNetVAE(in_channels=1, out_channels=3, latent_dim=self.latent_dim)
+        model = model.to(self.device)
+
+        optimizer = torch.optim.Adam(model.parameters(),
+                                     lr=self.learning_rate,
+                                     weight_decay=1e-6)
+
+        for epoch in range(self.epochs):
+            print(f"Starting Training Epoch {epoch + 1}")
+            model.train()
+
+            train_loss_sum = 0.0
+
+            for inputs, targets in tqdm(train_loader):
+                inputs  = inputs.to(self.device)
+                targets = targets.to(self.device)
+
+                optimizer.zero_grad()
+
+                recon, mu, logvar = model(inputs)
+                loss = vae_loss(recon, targets, mu, logvar)
+
+                loss.backward()
+                optimizer.step()
+
+                train_loss_sum += loss.item()
+
+            avg_train_loss = train_loss_sum / len(train_loader)
+            print(f"Epoch {epoch+1}  Training Loss: {avg_train_loss:.4f}")
+
+            val_metrics = self.validate(model, val_loader)
+            print(f"Epoch {epoch + 1} \t Validation Loss: {val_metrics["loss"]:.4f}")
+
+            wandb.log({
+                "train/epoch": epoch,
+                "train/loss": avg_train_loss,
+                "val/loss": val_metrics["loss"],
+                "val/ssim": val_metrics["ssim"],
+                "val/lpips": val_metrics["lpips"],
+                "val/deltaE": val_metrics["deltaE"],
+            })
+            
+            torch.save(model.state_dict(), f'./Models/unetvae/saved_model_{epoch+1}.pth')
+
+
+    def validate(self, model, val_loader):
+        model.eval()
+
+        total_loss = 0.0
+        total_ssim = 0.0
+        total_lpips = 0.0
+        total_deltaE = 0.0
+        count = 0
+
+        with torch.no_grad():
+            for inputs, targets in val_loader:
+                inputs = inputs.to(self.device)
+                targets = targets.to(self.device)
+
+                outputs, mu, logvar = model(inputs)
+                loss = vae_loss(outputs, targets, mu, logvar)
+
+                # Metrics
+                ssim_score = compute_ssim(outputs, targets)
+                lpips_score = self.lpips(outputs, targets).mean().item()
+                deltaE_score = compute_deltaE(outputs, targets)
+
+                total_loss += loss.item()
+                total_ssim += ssim_score
+                total_lpips += lpips_score
+                total_deltaE += deltaE_score
+                count += 1
+
+        return {
+            "loss": total_loss / count,
+            "ssim": total_ssim / count,
+            "lpips": total_lpips / count,
+            "deltaE": total_deltaE / count,
+        }

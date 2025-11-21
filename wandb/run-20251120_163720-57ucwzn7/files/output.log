@@ -1,0 +1,32 @@
+Setting up [LPIPS] perceptual loss: trunk [alex], v[0.1], spatial [off]
+/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/lpips/weights/v0.1/alex.pth
+Starting Training Epoch 1
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 56/56 [00:37<00:00,  1.50it/s]
+Training: Epoch 1 		 Discriminator Loss: 0.021274687722325325  		 Generator Loss: 0.05043942481279373
+Validation: Epoch 1 		 Discriminator Loss: 0.17292280108840377  		 Generator Loss: 3.07697738835841
+Starting Training Epoch 2
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 56/56 [00:36<00:00,  1.52it/s]
+Training: Epoch 2 		 Discriminator Loss: 1.7857143878936768  		 Generator Loss: 1.8716697692871094
+Traceback (most recent call last):
+  File "/home/jovyan/image-colorization/main.py", line 161, in <module>
+    trainer.train()
+  File "/home/jovyan/image-colorization/GAN/train.py", line 96, in train
+    errD_val, errG_val, ssim_val, lpips_val, deltaE_val, val_len = self.validate(model_D, model_G, criterion, L1)
+                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jovyan/image-colorization/GAN/train.py", line 159, in validate
+    total_deltaE += compute_deltaE(fake, targets) * batch_size
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jovyan/image-colorization/metrics.py", line 30, in compute_deltaE
+    delta = color.deltaE_ciede2000(p_lab, t_lab)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/skimage/color/delta_e.py", line 220, in deltaE_ciede2000
+    C2, h2 = _cart2polar_2pi(a2 * scale, b2)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/skimage/color/colorconv.py", line 1881, in _cart2polar_2pi
+    r, t = np.hypot(x, y), np.arctan2(y, x)
+                           ^^^^^^^^^^^^^^^^
+KeyboardInterrupt

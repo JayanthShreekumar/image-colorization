@@ -1,0 +1,16 @@
+Setting up [LPIPS] perceptual loss: trunk [alex], v[0.1], spatial [off]
+/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/lpips/weights/v0.1/alex.pth
+Starting Training Epoch 1
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 56/56 [00:37<00:00,  1.50it/s]
+Training: Epoch 1 		 Discriminator Loss: 0.018253982067108154  		 Generator Loss: 0.3576660454273224
+Validation: Epoch 1 		 Discriminator Loss: 0.21055666164115622  		 Generator Loss: 3.06121837945632
+Starting Training Epoch 2
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 56/56 [00:37<00:00,  1.50it/s]
+Training: Epoch 2 		 Discriminator Loss: 1.7857143878936768  		 Generator Loss: 1.080572485923767
+Validation: Epoch 2 		 Discriminator Loss: 11.11111111111111  		 Generator Loss: 6.5213712527428145
+Starting Training Epoch 3
+ 91%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                | 51/56 [00:34<00:03,  1.57it/s]

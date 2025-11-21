@@ -1,0 +1,22 @@
+Setting up [LPIPS] perceptual loss: trunk [alex], v[0.1], spatial [off]
+/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/lpips/weights/v0.1/alex.pth
+Starting Training Epoch 1
+100%|██████████| 57/57 [01:01<00:00,  1.07s/it]
+Epoch 1  Training Loss: 0.4622
+Traceback (most recent call last):
+  File "/home/jovyan/image-colorization/main.py", line 161, in <module>
+    trainer.train()
+  File "/home/jovyan/image-colorization/UNetVAE/train.py", line 85, in train
+    val_metrics = self.validate(model, val_loader)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jovyan/image-colorization/UNetVAE/train.py", line 119, in validate
+    lpips_score = self.lpips(outputs, targets).mean().item()
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jovyan/image-colorization/metrics.py", line 42, in __call__
+    pred_lp = (pred * 2 - 1).to(self.device)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 48.00 MiB. GPU 0 has a total capacity of 79.25 GiB of which 24.38 MiB is free. Process 632524 has 2.32 GiB memory in use. Process 633881 has 2.32 GiB memory in use. Process 635088 has 2.32 GiB memory in use. Process 638197 has 2.61 GiB memory in use. Process 639201 has 2.61 GiB memory in use. Process 639433 has 2.61 GiB memory in use. Process 649070 has 6.31 GiB memory in use. Process 650877 has 6.31 GiB memory in use. Process 652047 has 6.31 GiB memory in use. Process 654624 has 4.29 GiB memory in use. Process 656017 has 4.29 GiB memory in use. Process 657253 has 4.29 GiB memory in use. Process 659624 has 4.71 GiB memory in use. Process 661714 has 4.71 GiB memory in use. Process 663448 has 4.71 GiB memory in use. Process 670599 has 6.63 GiB memory in use. Process 673246 has 6.63 GiB memory in use. Process 684367 has 1.53 GiB memory in use. Process 695083 has 1.53 GiB memory in use. Process 698489 has 788.00 MiB memory in use. Process 700269 has 436.00 MiB memory in use. Process 700748 has 436.00 MiB memory in use. Process 705916 has 436.00 MiB memory in use. Of the allocated memory 9.43 MiB is allocated by PyTorch, and 12.57 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

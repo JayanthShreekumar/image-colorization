@@ -1,0 +1,14 @@
+{"time":"2025-11-21T14:10:09.55688749Z","level":"INFO","msg":"stream: starting","core version":"0.22.3"}
+{"time":"2025-11-21T14:10:09.766850216Z","level":"INFO","msg":"stream: created new stream","id":"jm4xljsh"}
+{"time":"2025-11-21T14:10:09.766911937Z","level":"INFO","msg":"handler: started","stream_id":"jm4xljsh"}
+{"time":"2025-11-21T14:10:09.767135002Z","level":"INFO","msg":"stream: started","id":"jm4xljsh"}
+{"time":"2025-11-21T14:10:09.767149842Z","level":"INFO","msg":"writer: started","stream_id":"jm4xljsh"}
+{"time":"2025-11-21T14:10:09.767155753Z","level":"INFO","msg":"sender: started","stream_id":"jm4xljsh"}
+{"time":"2025-11-21T14:58:48.362766527Z","level":"INFO","msg":"stream: closing","id":"jm4xljsh"}
+{"time":"2025-11-21T14:58:48.363169596Z","level":"ERROR","msg":"sender: failed to upload run summary: write /home/jovyan/image-colorization/wandb/run-20251121_141009-jm4xljsh/files/wandb-summary.json: no space left on device"}
+{"time":"2025-11-21T14:58:48.363933184Z","level":"ERROR","msg":"sender: failed to upload run config: write /home/jovyan/image-colorization/wandb/run-20251121_141009-jm4xljsh/files/config.yaml: no space left on device"}
+{"time":"2025-11-21T14:58:48.611096651Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-11-21T14:58:48.790543781Z","level":"INFO","msg":"handler: closed","stream_id":"jm4xljsh"}
+{"time":"2025-11-21T14:58:48.790645383Z","level":"ERROR","msg":"writer: failed closing store: transactionlog: error closing writer: write /home/jovyan/image-colorization/wandb/run-20251121_141009-jm4xljsh/run-jm4xljsh.wandb: no space left on device"}
+{"time":"2025-11-21T14:58:48.790956Z","level":"INFO","msg":"sender: closed","stream_id":"jm4xljsh"}
+{"time":"2025-11-21T14:58:48.79096613Z","level":"INFO","msg":"stream: closed","id":"jm4xljsh"}

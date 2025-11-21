@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/home/jovyan/image-colorization/main.py", line 158, in <module>
+    trainer.train()
+  File "/home/jovyan/image-colorization/UNetVAE/train.py", line 54, in train
+    model = UNetVAE(in_channels=1, out_channels=3, latent_dim=self.latent_dim)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: UNetVAE.__init__() got an unexpected keyword argument 'in_channels'

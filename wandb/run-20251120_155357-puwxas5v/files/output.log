@@ -1,0 +1,60 @@
+Setting up [LPIPS] perceptual loss: trunk [alex], v[0.1], spatial [off]
+/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/lpips/weights/v0.1/alex.pth
+Starting Training Epoch 1
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 57/57 [00:36<00:00,  1.55it/s]
+Epoch 1 	 Training Loss: 7.9043
+Epoch 1 	 Validation Loss: 0.3159
+Starting Training Epoch 2
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 57/57 [00:36<00:00,  1.54it/s]
+Epoch 2 	 Training Loss: 0.3063
+Epoch 2 	 Validation Loss: 0.3067
+Starting Training Epoch 3
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 57/57 [00:37<00:00,  1.54it/s]
+Epoch 3 	 Training Loss: 0.2833
+Epoch 3 	 Validation Loss: 0.2649
+Starting Training Epoch 4
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 57/57 [00:36<00:00,  1.56it/s]
+Epoch 4 	 Training Loss: 0.2525
+Epoch 4 	 Validation Loss: 0.2476
+Starting Training Epoch 5
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 57/57 [00:37<00:00,  1.52it/s]
+Epoch 5 	 Training Loss: 0.2425
+Epoch 5 	 Validation Loss: 0.2412
+Starting Training Epoch 6
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 57/57 [00:37<00:00,  1.53it/s]
+Epoch 6 	 Training Loss: 0.2379
+Epoch 6 	 Validation Loss: 0.2363
+Starting Training Epoch 7
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 57/57 [00:37<00:00,  1.52it/s]
+Epoch 7 	 Training Loss: 0.2330
+Epoch 7 	 Validation Loss: 0.2325
+Starting Training Epoch 8
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 57/57 [00:36<00:00,  1.54it/s]
+Epoch 8 	 Training Loss: 0.2297
+Epoch 8 	 Validation Loss: 0.2305
+Starting Training Epoch 9
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 57/57 [00:37<00:00,  1.54it/s]
+Epoch 9 	 Training Loss: 0.2286
+Traceback (most recent call last):
+  File "/home/jovyan/image-colorization/main.py", line 161, in <module>
+    trainer.train()
+  File "/home/jovyan/image-colorization/BasicVAE/train.py", line 68, in train
+    val_metrics = self.validate(model, val_loader)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jovyan/image-colorization/BasicVAE/train.py", line 102, in validate
+    deltaE_score = compute_deltaE(outputs, targets)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jovyan/image-colorization/metrics.py", line 30, in compute_deltaE
+    delta = color.deltaE_ciede2000(p_lab, t_lab)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/skimage/color/delta_e.py", line 220, in deltaE_ciede2000
+    C2, h2 = _cart2polar_2pi(a2 * scale, b2)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/skimage/color/colorconv.py", line 1881, in _cart2polar_2pi
+    r, t = np.hypot(x, y), np.arctan2(y, x)
+                           ^^^^^^^^^^^^^^^^
+KeyboardInterrupt

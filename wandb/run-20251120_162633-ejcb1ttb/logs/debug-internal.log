@@ -1,0 +1,11 @@
+{"time":"2025-11-20T16:26:33.368857952Z","level":"INFO","msg":"stream: starting","core version":"0.22.3"}
+{"time":"2025-11-20T16:26:33.576730177Z","level":"INFO","msg":"stream: created new stream","id":"ejcb1ttb"}
+{"time":"2025-11-20T16:26:33.576814209Z","level":"INFO","msg":"handler: started","stream_id":"ejcb1ttb"}
+{"time":"2025-11-20T16:26:33.576953093Z","level":"INFO","msg":"stream: started","id":"ejcb1ttb"}
+{"time":"2025-11-20T16:26:33.576970723Z","level":"INFO","msg":"writer: started","stream_id":"ejcb1ttb"}
+{"time":"2025-11-20T16:26:33.576972623Z","level":"INFO","msg":"sender: started","stream_id":"ejcb1ttb"}
+{"time":"2025-11-20T16:28:46.783033541Z","level":"INFO","msg":"stream: closing","id":"ejcb1ttb"}
+{"time":"2025-11-20T16:28:47.046451061Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-11-20T16:28:47.213484915Z","level":"INFO","msg":"handler: closed","stream_id":"ejcb1ttb"}
+{"time":"2025-11-20T16:28:47.213576147Z","level":"INFO","msg":"sender: closed","stream_id":"ejcb1ttb"}
+{"time":"2025-11-20T16:28:47.213587777Z","level":"INFO","msg":"stream: closed","id":"ejcb1ttb"}

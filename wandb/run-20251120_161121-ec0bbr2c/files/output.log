@@ -1,0 +1,54 @@
+Setting up [LPIPS] perceptual loss: trunk [alex], v[0.1], spatial [off]
+/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/lpips/weights/v0.1/alex.pth
+Starting Training Epoch 1
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 56/56 [00:36<00:00,  1.52it/s]
+Training: Epoch 1 		 Discriminator Loss: 0.021649710834026337  		 Generator Loss: 0.3552299737930298
+Validation: Epoch 1 		 Discriminator Loss: 0.13016315154087396  		 Generator Loss: 3.069920787104854
+Starting Training Epoch 2
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 56/56 [00:36<00:00,  1.52it/s]
+Training: Epoch 2 		 Discriminator Loss: 1.7857143878936768  		 Generator Loss: 1.0874985456466675
+Validation: Epoch 2 		 Discriminator Loss: 11.11111111111111  		 Generator Loss: 6.533533025670935
+Starting Training Epoch 3
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 56/56 [00:36<00:00,  1.52it/s]
+Training: Epoch 3 		 Discriminator Loss: 1.7857143878936768  		 Generator Loss: 1.0647804737091064
+Validation: Epoch 3 		 Discriminator Loss: 11.11111111111111  		 Generator Loss: 6.418602931646653
+Starting Training Epoch 4
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 56/56 [00:37<00:00,  1.49it/s]
+Training: Epoch 4 		 Discriminator Loss: 1.7857143878936768  		 Generator Loss: 0.37644580006599426
+Validation: Epoch 4 		 Discriminator Loss: 11.11111111111111  		 Generator Loss: 2.290944699887876
+Starting Training Epoch 5
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 56/56 [00:37<00:00,  1.51it/s]
+Training: Epoch 5 		 Discriminator Loss: 1.7857143878936768  		 Generator Loss: 0.35306087136268616
+Validation: Epoch 5 		 Discriminator Loss: 11.11111111111111  		 Generator Loss: 2.1441229125599803
+Starting Training Epoch 6
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 56/56 [00:37<00:00,  1.50it/s]
+Training: Epoch 6 		 Discriminator Loss: 1.7857143878936768  		 Generator Loss: 0.34087714552879333
+Traceback (most recent call last):
+  File "/home/jovyan/image-colorization/main.py", line 161, in <module>
+    trainer.train()
+  File "/home/jovyan/image-colorization/GAN/train.py", line 96, in train
+    errD_val, errG_val, ssim_val, lpips_val, deltaE_val, val_len = self.validate(model_D, model_G, criterion, L1)
+                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jovyan/image-colorization/GAN/train.py", line 159, in validate
+    total_deltaE += compute_deltaE(fake, targets) * batch_size
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jovyan/image-colorization/metrics.py", line 29, in compute_deltaE
+    t_lab = color.rgb2lab(t)
+            ^^^^^^^^^^^^^^^^
+  File "/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/skimage/_shared/utils.py", line 445, in fixed_func
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/skimage/color/colorconv.py", line 1280, in rgb2lab
+    return xyz2lab(rgb2xyz(rgb), illuminant, observer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/skimage/_shared/utils.py", line 445, in fixed_func
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/skimage/color/colorconv.py", line 1116, in xyz2lab
+    arr[mask] = np.cbrt(arr[mask])
+                ^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

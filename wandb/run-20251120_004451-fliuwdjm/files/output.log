@@ -1,0 +1,57 @@
+Starting Training Epoch 1
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 57/57 [00:37<00:00,  1.52it/s]
+Epoch 1  Training Loss: 6796.9479
+Epoch 1  Validation Loss: 33894117212046627962880.0000
+Starting Training Epoch 2
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 57/57 [00:36<00:00,  1.55it/s]
+Epoch 2  Training Loss: 4524.2699
+Epoch 2  Validation Loss: inf
+Starting Training Epoch 3
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 57/57 [00:37<00:00,  1.53it/s]
+Epoch 3  Training Loss: 2575.2802
+Epoch 3  Validation Loss: 0.2234
+Starting Training Epoch 4
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 57/57 [00:36<00:00,  1.56it/s]
+Epoch 4  Training Loss: 7202.3091
+Epoch 4  Validation Loss: 0.3116
+Starting Training Epoch 5
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 57/57 [00:36<00:00,  1.55it/s]
+Epoch 5  Training Loss: 34.6296
+Epoch 5  Validation Loss: 0.2276
+Starting Training Epoch 6
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 57/57 [00:36<00:00,  1.54it/s]
+Epoch 6  Training Loss: 1079.6299
+Epoch 6  Validation Loss: 1.0816
+Starting Training Epoch 7
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 57/57 [00:37<00:00,  1.54it/s]
+Epoch 7  Training Loss: 129.3576
+Epoch 7  Validation Loss: 8.1673
+Starting Training Epoch 8
+ 56%|█████████████████████████████████████████████████████████████████████████████████████████████▏                                                                        | 32/57 [00:22<00:17,  1.45it/s]
+Traceback (most recent call last):
+  File "/home/jovyan/image-colorization/main.py", line 158, in <module>
+    trainer.train()
+  File "/home/jovyan/image-colorization/UNetVAE/train.py", line 67, in train
+    for inputs, targets in tqdm(train_loader):
+                           ^^^^^^^^^^^^^^^^^^
+  File "/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+               ^^^^^^^^
+  File "/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 732, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1482, in _next_data
+    idx, data = self._get_data()
+                ^^^^^^^^^^^^^^^^
+  File "/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1434, in _get_data
+    success, data = self._try_get_data()
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1275, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/saturncloud/envs/ece60131_proj/lib/python3.12/queue.py", line 180, in get
+    self.not_empty.wait(remaining)
+  File "/opt/saturncloud/envs/ece60131_proj/lib/python3.12/threading.py", line 359, in wait
+    gotit = waiter.acquire(True, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

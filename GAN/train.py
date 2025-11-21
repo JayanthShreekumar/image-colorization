@@ -1,5 +1,10 @@
 import torch
 import glob
+import sys
+import os
+import wandb
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 import numpy as np
 import torch.nn as nn
@@ -7,13 +12,12 @@ import torch.nn as nn
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 
-from model import NetGen, NetDis
+from GAN.model import NetGen, NetDis
 from colorize_data import ColorizeData
+from metrics import compute_ssim, compute_deltaE
 
-
-
-class Trainer:
-    def __init__(self, train_paths, val_paths, epochs, batch_size, learning_rate, num_workers):
+class Trainer_GAN:
+    def __init__(self, train_paths, val_paths, latent_dim, lpips, epochs, batch_size, learning_rate, num_workers):
         self.epochs = epochs
         self.batch_size = batch_size
         self.learning_rate = learning_rate
@@ -23,6 +27,7 @@ class Trainer:
         self.real_label = 1
         self.fake_label = 0
         self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        self.lpips = lpips
     
     def weights_init(self, m):
         classname = m.__class__.__name__
@@ -54,7 +59,6 @@ class Trainer:
         model_G.train()
         model_D.train()
 
-
         # train loop
         for epoch in range(self.epochs):
             print("Starting Training Epoch " + str(epoch + 1))
@@ -82,34 +86,56 @@ class Trainer:
                 output = model_D(fake)
                 errG = criterion(torch.squeeze(output), label)
                 errG_L1 = L1(fake.view(fake.size(0),-1), targets.view(targets.size(0),-1))
-                errG = errG + 100 * errG_L1
+                errG = errG + 10 * errG_L1
                 errG.backward()
                 optimizer_G.step()   
 
             print(f'Training: Epoch {epoch + 1} \t\t Discriminator Loss: {errD / len(train_dataloader)}  \t\t Generator Loss: {errG / len(train_dataloader)}')
             
             if (epoch + 1) % 1 == 0:
-                errD_val, errG_val, val_len = self.validate(model_D, model_G, criterion, L1)
+                errD_val, errG_val, ssim_val, lpips_val, deltaE_val, val_len = self.validate(model_D, model_G, criterion, L1)
                 print(f'Validation: Epoch {epoch + 1} \t\t Discriminator Loss: {errD_val / val_len}  \t\t Generator Loss: {errG_val / val_len}')
- 
-                
-            torch.save(model_G.state_dict(), '../Results/RGB_GAN/Generator/saved_model_' + str(epoch + 1) + '.pth')
-            torch.save(model_D.state_dict(), '../Results/RGB_GAN/Discriminator/saved_model_' + str(epoch + 1) + '.pth')
 
+            wandb.log({
+                        "train/epoch": epoch + 1,
+                        "train/disc_loss": errD / len(train_dataloader),
+                        "train/loss": errD / len(train_dataloader),
+                        "val/disc_loss": errD_val,
+                        "val/loss": errG_val,
+                        "val/ssim": ssim_val,
+                        "val/lpips": lpips_val,
+                        "val/deltaE": deltaE_val
+                    })
 
+            torch.save(model_G.state_dict(), './Models/gan/saved_model_' + str(epoch + 1) + '.pth')
+
+    
     def validate(self, model_D, model_G, criterion, L1):
         model_G.eval()
         model_D.eval()
+
+        total_errD = 0.0
+        total_errG = 0.0
+        total_ssim = 0.0
+        total_lpips = 0.0
+        total_deltaE = 0.0
+        count = 0
+
+        val_dataset = ColorizeData(paths=self.val_paths)
+        val_dataloader = DataLoader(
+            val_dataset, batch_size=self.batch_size,
+            num_workers=self.num_workers, pin_memory=True, drop_last=True
+        )
+
         with torch.no_grad():
-            valid_loss = 0.0
-            val_dataset = ColorizeData(paths=self.val_paths)
-            val_dataloader = DataLoader(val_dataset, batch_size=self.batch_size, num_workers=self.num_workers, pin_memory=True, drop_last = True)
-            for i, data in enumerate(val_dataloader):
-                inputs, targets = data
+            for inputs, targets in val_dataloader:
                 inputs = inputs.to(self.device)
                 targets = targets.to(self.device)
 
-                label = torch.full((self.batch_size,), self.real_label, dtype=torch.float, device=self.device)
+                batch_size = inputs.size(0)
+                count += batch_size
+
+                label = torch.full((batch_size,), self.real_label, dtype=torch.float, device=self.device)
                 output = model_D(targets)
                 errD_real = criterion(torch.squeeze(output), label)
 
@@ -119,23 +145,23 @@ class Trainer:
                 errD_fake = criterion(torch.squeeze(output), label)
                 errD = errD_real + errD_fake
 
-                label.fill_(self.real_label) 
+                label.fill_(self.real_label)
                 output = model_D(fake)
                 errG = criterion(torch.squeeze(output), label)
-                errG_L1 = L1(fake.view(fake.size(0),-1), targets.view(targets.size(0),-1))
-                errG = errG + 100* errG_L1
+                errG_L1 = L1(fake.view(batch_size, -1), targets.view(batch_size, -1))
+                errG = errG + 100 * errG_L1
 
-        return errD, errG, len(val_dataloader)
+                total_errD += errD.item()
+                total_errG += errG.item()
 
+                total_ssim += compute_ssim(fake, targets).item() * batch_size
+                total_lpips += self.lpips(fake, targets).item() * batch_size
+                total_deltaE += compute_deltaE(fake, targets) * batch_size
 
-if __name__ == "__main__":
-    path = "../Dataset/"
-    paths = np.array(glob.glob(path + "/*.jpg"))
-    rand_indices = np.random.permutation(len(paths))                                                                               # Number of images in dataset
-    # I had reserved a few samples for testing on unseen data. These are now ignored.
-    train_indices, val_indices, test_indices = rand_indices[:3600], rand_indices[3600:4000], rand_indices[4000:]
-    train_paths = paths[train_indices]
-    val_paths = paths[val_indices]
+        avg_errD = total_errD / len(val_dataloader)
+        avg_errG = total_errG / len(val_dataloader)
+        avg_ssim = total_ssim / count
+        avg_lpips = total_lpips / count
+        avg_deltaE = total_deltaE / count
 
-    trainer = Trainer(train_paths, val_paths, epochs = 100, batch_size = 64, learning_rate = 0.01, num_workers = 2)
-    trainer.train()
+        return avg_errD, avg_errG, avg_ssim, avg_lpips, avg_deltaE, len(val_dataloader)

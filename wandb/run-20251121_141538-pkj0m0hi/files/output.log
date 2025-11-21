@@ -1,0 +1,140 @@
+Setting up [LPIPS] perceptual loss: trunk [alex], v[0.1], spatial [off]
+/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/lpips/weights/v0.1/alex.pth
+Starting Training Epoch 1
+100%|██████████| 56/56 [00:53<00:00,  1.05it/s]
+Training: Epoch 1 		 Discriminator Loss: 0.018387675285339355  		 Generator Loss: 0.31452643871307373
+Validation: Epoch 1 		 Discriminator Loss: 0.18165571454130572  		 Generator Loss: 3.4393283938184194
+Starting Training Epoch 2
+100%|██████████| 56/56 [01:00<00:00,  1.07s/it]
+Training: Epoch 2 		 Discriminator Loss: 0.031659290194511414  		 Generator Loss: 0.33274155855178833
+Validation: Epoch 2 		 Discriminator Loss: 0.12307202374493634  		 Generator Loss: 1.9184034606556832
+Starting Training Epoch 3
+100%|██████████| 56/56 [00:47<00:00,  1.17it/s]
+Training: Epoch 3 		 Discriminator Loss: 0.012104067020118237  		 Generator Loss: 0.28328225016593933
+Validation: Epoch 3 		 Discriminator Loss: 0.10080110364490086  		 Generator Loss: 1.7242778730981145
+Starting Training Epoch 4
+100%|██████████| 56/56 [00:57<00:00,  1.02s/it]
+Training: Epoch 4 		 Discriminator Loss: 0.011539207771420479  		 Generator Loss: 0.2780761420726776
+Validation: Epoch 4 		 Discriminator Loss: 0.07201712734905291  		 Generator Loss: 1.6893955277807917
+Starting Training Epoch 5
+100%|██████████| 56/56 [00:56<00:00,  1.01s/it]
+Training: Epoch 5 		 Discriminator Loss: 0.01785269007086754  		 Generator Loss: 0.28786027431488037
+Validation: Epoch 5 		 Discriminator Loss: 0.0979513489169839  		 Generator Loss: 1.7359781853946639
+Starting Training Epoch 6
+100%|██████████| 56/56 [00:48<00:00,  1.15it/s]
+Training: Epoch 6 		 Discriminator Loss: 0.01120178122073412  		 Generator Loss: 0.2684677839279175
+Validation: Epoch 6 		 Discriminator Loss: 0.07601012639057489  		 Generator Loss: 1.6569948078673562
+Starting Training Epoch 7
+100%|██████████| 56/56 [00:56<00:00,  1.01s/it]
+Training: Epoch 7 		 Discriminator Loss: 0.01425612810999155  		 Generator Loss: 0.2658371925354004
+Validation: Epoch 7 		 Discriminator Loss: 0.08195204499327106  		 Generator Loss: 1.6327212887045777
+Starting Training Epoch 8
+100%|██████████| 56/56 [01:00<00:00,  1.08s/it]
+Training: Epoch 8 		 Discriminator Loss: 0.009121094830334187  		 Generator Loss: 0.25942307710647583
+Validation: Epoch 8 		 Discriminator Loss: 0.11153132091333837  		 Generator Loss: 1.5805445070619937
+Starting Training Epoch 9
+100%|██████████| 56/56 [00:57<00:00,  1.02s/it]
+Training: Epoch 9 		 Discriminator Loss: 0.017892492935061455  		 Generator Loss: 0.2709852457046509
+Validation: Epoch 9 		 Discriminator Loss: 0.0895016340561855  		 Generator Loss: 1.6306190490722656
+Starting Training Epoch 10
+100%|██████████| 56/56 [01:01<00:00,  1.09s/it]
+Training: Epoch 10 		 Discriminator Loss: 0.012860426679253578  		 Generator Loss: 0.2637859582901001
+Validation: Epoch 10 		 Discriminator Loss: 0.08720851827550818  		 Generator Loss: 1.6325204990528248
+Starting Training Epoch 11
+100%|██████████| 56/56 [00:52<00:00,  1.07it/s]
+Training: Epoch 11 		 Discriminator Loss: 0.012207002379000187  		 Generator Loss: 0.2577357888221741
+Validation: Epoch 11 		 Discriminator Loss: 0.11285205829290697  		 Generator Loss: 1.5388201136647919
+Starting Training Epoch 12
+100%|██████████| 56/56 [01:02<00:00,  1.12s/it]
+Training: Epoch 12 		 Discriminator Loss: 0.008972232230007648  		 Generator Loss: 0.26034998893737793
+Validation: Epoch 12 		 Discriminator Loss: 0.0903829895419839  		 Generator Loss: 1.5606708526611328
+Starting Training Epoch 13
+100%|██████████| 56/56 [01:00<00:00,  1.07s/it]
+Training: Epoch 13 		 Discriminator Loss: 0.009180530905723572  		 Generator Loss: 0.2588133215904236
+Validation: Epoch 13 		 Discriminator Loss: 0.06310189874083907  		 Generator Loss: 1.6122648804276078
+Starting Training Epoch 14
+100%|██████████| 56/56 [00:57<00:00,  1.02s/it]
+Training: Epoch 14 		 Discriminator Loss: 0.012605559080839157  		 Generator Loss: 0.2529250979423523
+Validation: Epoch 14 		 Discriminator Loss: 0.07936278095951786  		 Generator Loss: 1.5536597922996238
+Starting Training Epoch 15
+100%|██████████| 56/56 [00:50<00:00,  1.11it/s]
+Training: Epoch 15 		 Discriminator Loss: 0.009135360829532146  		 Generator Loss: 0.2588143050670624
+Validation: Epoch 15 		 Discriminator Loss: 0.06965764510778732  		 Generator Loss: 1.5741707012977129
+Starting Training Epoch 16
+100%|██████████| 56/56 [01:02<00:00,  1.12s/it]
+Training: Epoch 16 		 Discriminator Loss: 0.013177082873880863  		 Generator Loss: 0.2601569890975952
+Validation: Epoch 16 		 Discriminator Loss: 0.0932534506291519  		 Generator Loss: 1.586957507663303
+Starting Training Epoch 17
+100%|██████████| 56/56 [00:58<00:00,  1.05s/it]
+Training: Epoch 17 		 Discriminator Loss: 0.01282072439789772  		 Generator Loss: 0.26117557287216187
+Validation: Epoch 17 		 Discriminator Loss: 0.12662656439675224  		 Generator Loss: 1.54486275896614
+Starting Training Epoch 18
+100%|██████████| 56/56 [00:55<00:00,  1.01it/s]
+Training: Epoch 18 		 Discriminator Loss: 0.01035602018237114  		 Generator Loss: 0.26390641927719116
+Validation: Epoch 18 		 Discriminator Loss: 0.10548806852764553  		 Generator Loss: 1.579003981602045
+Starting Training Epoch 19
+100%|██████████| 56/56 [01:10<00:00,  1.26s/it]
+Training: Epoch 19 		 Discriminator Loss: 0.009980836883187294  		 Generator Loss: 0.2535090148448944
+Validation: Epoch 19 		 Discriminator Loss: 0.07768789779992752  		 Generator Loss: 1.5605353838131752
+Starting Training Epoch 20
+100%|██████████| 56/56 [00:56<00:00,  1.01s/it]
+Training: Epoch 20 		 Discriminator Loss: 0.00955235492438078  		 Generator Loss: 0.24870017170906067
+Validation: Epoch 20 		 Discriminator Loss: 0.10264299460399298  		 Generator Loss: 1.5201939594598466
+Starting Training Epoch 21
+100%|██████████| 56/56 [00:59<00:00,  1.07s/it]
+Training: Epoch 21 		 Discriminator Loss: 0.015458691865205765  		 Generator Loss: 0.2512224614620209
+Validation: Epoch 21 		 Discriminator Loss: 0.08795629018618738  		 Generator Loss: 1.5404641186749495
+Starting Training Epoch 22
+100%|██████████| 56/56 [00:59<00:00,  1.06s/it]
+Training: Epoch 22 		 Discriminator Loss: 0.011833970434963703  		 Generator Loss: 0.25777897238731384
+Validation: Epoch 22 		 Discriminator Loss: 0.08926010131835938  		 Generator Loss: 1.5846323790373626
+Starting Training Epoch 23
+100%|██████████| 56/56 [00:51<00:00,  1.08it/s]
+Training: Epoch 23 		 Discriminator Loss: 0.01250947080552578  		 Generator Loss: 0.2578709125518799
+Validation: Epoch 23 		 Discriminator Loss: 0.10989795570020322  		 Generator Loss: 1.5776901833805037
+Starting Training Epoch 24
+100%|██████████| 56/56 [01:02<00:00,  1.12s/it]
+Training: Epoch 24 		 Discriminator Loss: 0.012431254610419273  		 Generator Loss: 0.2560737133026123
+Validation: Epoch 24 		 Discriminator Loss: 0.08887263507018855  		 Generator Loss: 1.5761070015989704
+Starting Training Epoch 25
+100%|██████████| 56/56 [00:55<00:00,  1.01it/s]
+Training: Epoch 25 		 Discriminator Loss: 0.009104281663894653  		 Generator Loss: 0.2672942578792572
+Validation: Epoch 25 		 Discriminator Loss: 0.09235973711367007  		 Generator Loss: 1.61743657382918
+Starting Training Epoch 26
+100%|██████████| 56/56 [01:02<00:00,  1.12s/it]
+Training: Epoch 26 		 Discriminator Loss: 0.009477617219090462  		 Generator Loss: 0.25353723764419556
+Validation: Epoch 26 		 Discriminator Loss: 0.09656829672095217  		 Generator Loss: 1.574769679410958
+Starting Training Epoch 27
+100%|██████████| 56/56 [00:48<00:00,  1.15it/s]
+Training: Epoch 27 		 Discriminator Loss: 0.010458288714289665  		 Generator Loss: 0.27847403287887573
+Validation: Epoch 27 		 Discriminator Loss: 0.09565044553191573  		 Generator Loss: 1.6691165264741874
+Starting Training Epoch 28
+100%|██████████| 56/56 [00:55<00:00,  1.02it/s]
+Training: Epoch 28 		 Discriminator Loss: 0.015987742692232132  		 Generator Loss: 0.2806689143180847
+Validation: Epoch 28 		 Discriminator Loss: 0.12796454076413755  		 Generator Loss: 1.7079867492487402
+Starting Training Epoch 29
+100%|██████████| 56/56 [01:03<00:00,  1.13s/it]
+Training: Epoch 29 		 Discriminator Loss: 0.009045704267919064  		 Generator Loss: 0.27857768535614014
+Validation: Epoch 29 		 Discriminator Loss: 0.14661791148009123  		 Generator Loss: 1.7128161088919933
+Starting Training Epoch 30
+100%|██████████| 56/56 [00:58<00:00,  1.05s/it]
+Training: Epoch 30 		 Discriminator Loss: 0.005288929212838411  		 Generator Loss: 0.26374587416648865
+Validation: Epoch 30 		 Discriminator Loss: 0.12464556797051135  		 Generator Loss: 1.6772405012154286
+Starting Training Epoch 31
+100%|██████████| 56/56 [00:53<00:00,  1.04it/s]
+Training: Epoch 31 		 Discriminator Loss: 0.01708024926483631  		 Generator Loss: 0.3019559383392334
+Validation: Epoch 31 		 Discriminator Loss: 0.25455360353728873  		 Generator Loss: 1.780461535041715
+Starting Training Epoch 32
+100%|██████████| 56/56 [00:57<00:00,  1.02s/it]
+Training: Epoch 32 		 Discriminator Loss: 0.007631270680576563  		 Generator Loss: 0.2782127261161804
+Validation: Epoch 32 		 Discriminator Loss: 0.17970057917229923  		 Generator Loss: 1.7230183283487956
+Starting Training Epoch 33
+100%|██████████| 56/56 [01:08<00:00,  1.23s/it]
+Training: Epoch 33 		 Discriminator Loss: 0.012919672764837742  		 Generator Loss: 0.26511645317077637
+Validation: Epoch 33 		 Discriminator Loss: 0.12161886839219083  		 Generator Loss: 1.6538828155140817
+Starting Training Epoch 34
+ 64%|██████▍   | 36/56 [00:42<00:21,  1.08s/it]

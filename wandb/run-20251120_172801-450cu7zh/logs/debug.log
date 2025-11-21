@@ -1,0 +1,23 @@
+2025-11-20 17:28:01,977 INFO    MainThread:1733362 [wandb_setup.py:_flush():81] Current SDK version is 0.22.3
+2025-11-20 17:28:01,977 INFO    MainThread:1733362 [wandb_setup.py:_flush():81] Configure stats pid to 1733362
+2025-11-20 17:28:01,977 INFO    MainThread:1733362 [wandb_setup.py:_flush():81] Loading settings from /home/jovyan/.config/wandb/settings
+2025-11-20 17:28:01,977 INFO    MainThread:1733362 [wandb_setup.py:_flush():81] Loading settings from /home/jovyan/image-colorization/wandb/settings
+2025-11-20 17:28:01,977 INFO    MainThread:1733362 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2025-11-20 17:28:01,977 INFO    MainThread:1733362 [wandb_init.py:setup_run_log_directory():706] Logging user logs to /home/jovyan/image-colorization/wandb/run-20251120_172801-450cu7zh/logs/debug.log
+2025-11-20 17:28:01,977 INFO    MainThread:1733362 [wandb_init.py:setup_run_log_directory():707] Logging internal logs to /home/jovyan/image-colorization/wandb/run-20251120_172801-450cu7zh/logs/debug-internal.log
+2025-11-20 17:28:01,977 INFO    MainThread:1733362 [wandb_init.py:init():833] calling init triggers
+2025-11-20 17:28:01,977 INFO    MainThread:1733362 [wandb_init.py:init():838] wandb.init called with sweep_config: {}
+config: {'seed': 8000, 'epochs': 100, 'batch_size': 64, 'learning_rate': 0.001, 'model': 'resnet', 'latent_dim': 256, '_wandb': {}}
+2025-11-20 17:28:01,977 INFO    MainThread:1733362 [wandb_init.py:init():881] starting backend
+2025-11-20 17:28:02,182 INFO    MainThread:1733362 [wandb_init.py:init():884] sending inform_init request
+2025-11-20 17:28:02,186 INFO    MainThread:1733362 [wandb_init.py:init():892] backend started and connected
+2025-11-20 17:28:02,187 INFO    MainThread:1733362 [wandb_init.py:init():962] updated telemetry
+2025-11-20 17:28:02,192 INFO    MainThread:1733362 [wandb_init.py:init():986] communicating run to backend with 90.0 second timeout
+2025-11-20 17:28:03,093 INFO    MainThread:1733362 [wandb_init.py:init():1033] starting run threads in backend
+2025-11-20 17:28:03,162 INFO    MainThread:1733362 [wandb_run.py:_console_start():2506] atexit reg
+2025-11-20 17:28:03,162 INFO    MainThread:1733362 [wandb_run.py:_redirect():2354] redirect: wrap_raw
+2025-11-20 17:28:03,162 INFO    MainThread:1733362 [wandb_run.py:_redirect():2423] Wrapping output streams.
+2025-11-20 17:28:03,162 INFO    MainThread:1733362 [wandb_run.py:_redirect():2446] Redirects installed.
+2025-11-20 17:28:03,164 INFO    MainThread:1733362 [wandb_init.py:init():1073] run started, returning control to user process
+2025-11-20 17:33:18,473 INFO    wandb-AsyncioManager-main:1733362 [service_client.py:_forward_responses():80] Reached EOF.
+2025-11-20 17:33:18,474 INFO    wandb-AsyncioManager-main:1733362 [mailbox.py:close():137] Closing mailbox, abandoning 1 handles.

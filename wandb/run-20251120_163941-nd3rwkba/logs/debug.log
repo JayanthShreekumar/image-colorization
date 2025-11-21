@@ -1,0 +1,37 @@
+2025-11-20 16:39:41,393 INFO    MainThread:1709842 [wandb_setup.py:_flush():81] Current SDK version is 0.22.3
+2025-11-20 16:39:41,393 INFO    MainThread:1709842 [wandb_setup.py:_flush():81] Configure stats pid to 1709842
+2025-11-20 16:39:41,393 INFO    MainThread:1709842 [wandb_setup.py:_flush():81] Loading settings from /home/jovyan/.config/wandb/settings
+2025-11-20 16:39:41,393 INFO    MainThread:1709842 [wandb_setup.py:_flush():81] Loading settings from /home/jovyan/image-colorization/wandb/settings
+2025-11-20 16:39:41,393 INFO    MainThread:1709842 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2025-11-20 16:39:41,393 INFO    MainThread:1709842 [wandb_init.py:setup_run_log_directory():706] Logging user logs to /home/jovyan/image-colorization/wandb/run-20251120_163941-nd3rwkba/logs/debug.log
+2025-11-20 16:39:41,393 INFO    MainThread:1709842 [wandb_init.py:setup_run_log_directory():707] Logging internal logs to /home/jovyan/image-colorization/wandb/run-20251120_163941-nd3rwkba/logs/debug-internal.log
+2025-11-20 16:39:41,393 INFO    MainThread:1709842 [wandb_init.py:init():833] calling init triggers
+2025-11-20 16:39:41,393 INFO    MainThread:1709842 [wandb_init.py:init():838] wandb.init called with sweep_config: {}
+config: {'seed': 8000, 'epochs': 100, 'batch_size': 64, 'learning_rate': 0.0001, 'model': 'gan', 'latent_dim': 256, '_wandb': {}}
+2025-11-20 16:39:41,393 INFO    MainThread:1709842 [wandb_init.py:init():881] starting backend
+2025-11-20 16:39:41,524 WARNING MainThread:1709842 [wandb_init.py:init():1588] [no run ID] interrupted
+Traceback (most recent call last):
+  File "/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/wandb/sdk/wandb_init.py", line 1579, in init
+    run = wi.init(run_settings, run_config, run_printer)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/wandb/sdk/wandb_init.py", line 883, in init
+    service = self._wl.ensure_service()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/wandb/sdk/wandb_setup.py", line 401, in ensure_service
+    self._connection = service_connection.connect_to_service(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/wandb/sdk/lib/service/service_connection.py", line 39, in connect_to_service
+    return _start_and_connect_service(asyncer, settings)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/wandb/sdk/lib/service/service_connection.py", line 52, in _start_and_connect_service
+    proc = service_process.start(settings)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/wandb/sdk/lib/service/service_process.py", line 33, in start
+    return _launch_server(settings)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/wandb/sdk/lib/service/service_process.py", line 105, in _launch_server
+    token = service_port_file.poll_for_token(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/wandb/sdk/lib/service/service_port_file.py", line 61, in poll_for_token
+    _SLEEP(max(0, min(0.2, end_time - _MONOTONIC())))
+KeyboardInterrupt

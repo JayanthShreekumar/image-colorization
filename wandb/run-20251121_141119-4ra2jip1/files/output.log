@@ -1,0 +1,168 @@
+Setting up [LPIPS] perceptual loss: trunk [alex], v[0.1], spatial [off]
+/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loading model from: /opt/saturncloud/envs/ece60131_proj/lib/python3.12/site-packages/lpips/weights/v0.1/alex.pth
+Starting Training Epoch 1
+100%|██████████| 57/57 [00:46<00:00,  1.23it/s]
+Epoch 1 		 Training Loss: 0.3300398763334542
+Epoch 1 	 Validation Loss: 0.2593
+Starting Training Epoch 2
+100%|██████████| 57/57 [00:48<00:00,  1.17it/s]
+Epoch 2 		 Training Loss: 0.24371000104828885
+Epoch 2 	 Validation Loss: 0.2324
+Starting Training Epoch 3
+100%|██████████| 57/57 [00:46<00:00,  1.23it/s]
+Epoch 3 		 Training Loss: 0.23356112576367563
+Epoch 3 	 Validation Loss: 0.2256
+Starting Training Epoch 4
+100%|██████████| 57/57 [01:01<00:00,  1.07s/it]
+Epoch 4 		 Training Loss: 0.2282109341600485
+Epoch 4 	 Validation Loss: 0.2215
+Starting Training Epoch 5
+100%|██████████| 57/57 [00:47<00:00,  1.21it/s]
+Epoch 5 		 Training Loss: 0.2245728723835527
+Epoch 5 	 Validation Loss: 0.2188
+Starting Training Epoch 6
+100%|██████████| 57/57 [00:48<00:00,  1.17it/s]
+Epoch 6 		 Training Loss: 0.2218561060073083
+Epoch 6 	 Validation Loss: 0.2166
+Starting Training Epoch 7
+100%|██████████| 57/57 [01:00<00:00,  1.06s/it]
+Epoch 7 		 Training Loss: 0.21966668492869326
+Epoch 7 	 Validation Loss: 0.2148
+Starting Training Epoch 8
+100%|██████████| 57/57 [00:58<00:00,  1.03s/it]
+Epoch 8 		 Training Loss: 0.21782917097995155
+Epoch 8 	 Validation Loss: 0.2132
+Starting Training Epoch 9
+100%|██████████| 57/57 [01:04<00:00,  1.13s/it]
+Epoch 9 		 Training Loss: 0.21626671155293783
+Epoch 9 	 Validation Loss: 0.2119
+Starting Training Epoch 10
+100%|██████████| 57/57 [01:00<00:00,  1.06s/it]
+Epoch 10 		 Training Loss: 0.21488189827977566
+Epoch 10 	 Validation Loss: 0.2107
+Starting Training Epoch 11
+100%|██████████| 57/57 [00:52<00:00,  1.08it/s]
+Epoch 11 		 Training Loss: 0.21364528280601167
+Epoch 11 	 Validation Loss: 0.2096
+Starting Training Epoch 12
+100%|██████████| 57/57 [00:56<00:00,  1.02it/s]
+Epoch 12 		 Training Loss: 0.21252571752196864
+Epoch 12 	 Validation Loss: 0.2086
+Starting Training Epoch 13
+100%|██████████| 57/57 [00:57<00:00,  1.01s/it]
+Epoch 13 		 Training Loss: 0.21149971976614834
+Epoch 13 	 Validation Loss: 0.2076
+Starting Training Epoch 14
+100%|██████████| 57/57 [00:48<00:00,  1.17it/s]
+Epoch 14 		 Training Loss: 0.21053550144036612
+Epoch 14 	 Validation Loss: 0.2068
+Starting Training Epoch 15
+100%|██████████| 57/57 [01:00<00:00,  1.06s/it]
+Epoch 15 		 Training Loss: 0.20964734674545757
+Epoch 15 	 Validation Loss: 0.2060
+Starting Training Epoch 16
+100%|██████████| 57/57 [00:52<00:00,  1.08it/s]
+Epoch 16 		 Training Loss: 0.20882691965814223
+Epoch 16 	 Validation Loss: 0.2054
+Starting Training Epoch 17
+100%|██████████| 57/57 [01:00<00:00,  1.07s/it]
+Epoch 17 		 Training Loss: 0.20806586690116347
+Epoch 17 	 Validation Loss: 0.2049
+Starting Training Epoch 18
+100%|██████████| 57/57 [00:43<00:00,  1.31it/s]
+Epoch 18 		 Training Loss: 0.20732228301073374
+Epoch 18 	 Validation Loss: 0.2043
+Starting Training Epoch 19
+100%|██████████| 57/57 [00:47<00:00,  1.20it/s]
+Epoch 19 		 Training Loss: 0.20661998710088564
+Epoch 19 	 Validation Loss: 0.2038
+Starting Training Epoch 20
+100%|██████████| 57/57 [00:45<00:00,  1.25it/s]
+Epoch 20 		 Training Loss: 0.20593910415967306
+Epoch 20 	 Validation Loss: 0.2034
+Starting Training Epoch 21
+100%|██████████| 57/57 [00:56<00:00,  1.00it/s]
+Epoch 21 		 Training Loss: 0.20527717837116174
+Epoch 21 	 Validation Loss: 0.2029
+Starting Training Epoch 22
+100%|██████████| 57/57 [00:51<00:00,  1.11it/s]
+Epoch 22 		 Training Loss: 0.20463722918117255
+Epoch 22 	 Validation Loss: 0.2024
+Starting Training Epoch 23
+100%|██████████| 57/57 [01:05<00:00,  1.15s/it]
+Epoch 23 		 Training Loss: 0.20402182298794128
+Epoch 23 	 Validation Loss: 0.2020
+Starting Training Epoch 24
+100%|██████████| 57/57 [01:14<00:00,  1.30s/it]
+Epoch 24 		 Training Loss: 0.2034328174695634
+Epoch 24 	 Validation Loss: 0.2016
+Starting Training Epoch 25
+100%|██████████| 57/57 [00:46<00:00,  1.22it/s]
+Epoch 25 		 Training Loss: 0.20285839940372266
+Epoch 25 	 Validation Loss: 0.2013
+Starting Training Epoch 26
+100%|██████████| 57/57 [00:43<00:00,  1.30it/s]
+Epoch 26 		 Training Loss: 0.20228603403819234
+Epoch 26 	 Validation Loss: 0.2010
+Starting Training Epoch 27
+100%|██████████| 57/57 [00:53<00:00,  1.06it/s]
+Epoch 27 		 Training Loss: 0.2017191737367396
+Epoch 27 	 Validation Loss: 0.2009
+Starting Training Epoch 28
+100%|██████████| 57/57 [01:06<00:00,  1.17s/it]
+Epoch 28 		 Training Loss: 0.20113419937460045
+Epoch 28 	 Validation Loss: 0.2008
+Starting Training Epoch 29
+100%|██████████| 57/57 [00:55<00:00,  1.03it/s]
+Epoch 29 		 Training Loss: 0.20056132057256865
+Epoch 29 	 Validation Loss: 0.2007
+Starting Training Epoch 30
+100%|██████████| 57/57 [00:51<00:00,  1.10it/s]
+Epoch 30 		 Training Loss: 0.20000264492996953
+Epoch 30 	 Validation Loss: 0.2006
+Starting Training Epoch 31
+100%|██████████| 57/57 [00:48<00:00,  1.18it/s]
+Epoch 31 		 Training Loss: 0.19943730533123016
+Epoch 31 	 Validation Loss: 0.2005
+Starting Training Epoch 32
+100%|██████████| 57/57 [00:50<00:00,  1.13it/s]
+Epoch 32 		 Training Loss: 0.19887717957036538
+Epoch 32 	 Validation Loss: 0.2003
+Starting Training Epoch 33
+100%|██████████| 57/57 [00:54<00:00,  1.05it/s]
+Epoch 33 		 Training Loss: 0.19833038433601982
+Epoch 33 	 Validation Loss: 0.2001
+Starting Training Epoch 34
+100%|██████████| 57/57 [00:57<00:00,  1.02s/it]
+Epoch 34 		 Training Loss: 0.19779002169768015
+Epoch 34 	 Validation Loss: 0.2000
+Starting Training Epoch 35
+100%|██████████| 57/57 [00:56<00:00,  1.01it/s]
+Epoch 35 		 Training Loss: 0.19728193811157294
+Epoch 35 	 Validation Loss: 0.1999
+Starting Training Epoch 36
+100%|██████████| 57/57 [00:50<00:00,  1.13it/s]
+Epoch 36 		 Training Loss: 0.19677110330054634
+Epoch 36 	 Validation Loss: 0.1999
+Starting Training Epoch 37
+100%|██████████| 57/57 [00:52<00:00,  1.08it/s]
+Epoch 37 		 Training Loss: 0.1962446936389856
+Epoch 37 	 Validation Loss: 0.1998
+Starting Training Epoch 38
+100%|██████████| 57/57 [00:51<00:00,  1.11it/s]
+Epoch 38 		 Training Loss: 0.19571448313562492
+Epoch 38 	 Validation Loss: 0.1998
+Starting Training Epoch 39
+100%|██████████| 57/57 [00:49<00:00,  1.14it/s]
+Epoch 39 		 Training Loss: 0.19516683147664657
+Epoch 39 	 Validation Loss: 0.1998
+Starting Training Epoch 40
+100%|██████████| 57/57 [00:56<00:00,  1.01it/s]
+Epoch 40 		 Training Loss: 0.1946271921981845
+Epoch 40 	 Validation Loss: 0.1998
+Starting Training Epoch 41
+ 14%|█▍        | 8/57 [00:07<00:40,  1.21it/s]

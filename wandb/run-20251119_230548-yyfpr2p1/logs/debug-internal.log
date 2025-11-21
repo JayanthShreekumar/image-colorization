@@ -1,0 +1,11 @@
+{"time":"2025-11-19T23:05:49.203678393Z","level":"INFO","msg":"stream: starting","core version":"0.22.3"}
+{"time":"2025-11-19T23:05:49.42456983Z","level":"INFO","msg":"stream: created new stream","id":"yyfpr2p1"}
+{"time":"2025-11-19T23:05:49.424701484Z","level":"INFO","msg":"handler: started","stream_id":"yyfpr2p1"}
+{"time":"2025-11-19T23:05:49.424911008Z","level":"INFO","msg":"stream: started","id":"yyfpr2p1"}
+{"time":"2025-11-19T23:05:49.424935349Z","level":"INFO","msg":"sender: started","stream_id":"yyfpr2p1"}
+{"time":"2025-11-19T23:05:49.424932719Z","level":"INFO","msg":"writer: started","stream_id":"yyfpr2p1"}
+{"time":"2025-11-19T23:06:58.042818234Z","level":"INFO","msg":"stream: closing","id":"yyfpr2p1"}
+{"time":"2025-11-19T23:06:58.310305514Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-11-19T23:06:58.47844884Z","level":"INFO","msg":"handler: closed","stream_id":"yyfpr2p1"}
+{"time":"2025-11-19T23:06:58.478557353Z","level":"INFO","msg":"sender: closed","stream_id":"yyfpr2p1"}
+{"time":"2025-11-19T23:06:58.478570473Z","level":"INFO","msg":"stream: closed","id":"yyfpr2p1"}
