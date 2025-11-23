@@ -17,14 +17,14 @@ from metrics import compute_ssim, compute_deltaE
 
 
 class Trainer_ResNet:
-    def __init__(self, train_paths, val_paths, latent_dim, lpips, epochs, batch_size, learning_rate, num_workers):
+    def __init__(self, train_paths, val_paths, latent_dim, device, lpips, epochs, batch_size, learning_rate, num_workers, **kwargs):
         self.epochs = epochs
         self.batch_size = batch_size
         self.learning_rate = learning_rate
         self.num_workers = num_workers
         self.train_paths = train_paths
         self.val_paths = val_paths
-        self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        self.device = torch.device(f"cuda:{device}" if torch.cuda.is_available() else "cpu")
         self.lpips = lpips
 
     def train(self):               
@@ -68,7 +68,7 @@ class Trainer_ResNet:
                 "val/lpips": val_metrics["lpips"],
                 "val/deltaE": val_metrics["deltaE"],
             })
-            torch.save(model.state_dict(), './Models/resnet/saved_model_' + str(epoch + 1) + '.pth')
+            # torch.save(model.state_dict(), './Models/resnet/saved_model_' + str(epoch + 1) + '.pth')
 
 
     def validate(self, model, criterion):

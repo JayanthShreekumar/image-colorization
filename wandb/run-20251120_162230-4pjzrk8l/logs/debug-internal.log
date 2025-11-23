@@ -1,8 +1,0 @@
-{"time":"2025-11-20T16:22:30.853619784Z","level":"INFO","msg":"stream: starting","core version":"0.22.3"}
-{"time":"2025-11-20T16:22:31.071647919Z","level":"INFO","msg":"stream: created new stream","id":"4pjzrk8l"}
-{"time":"2025-11-20T16:22:31.07170349Z","level":"INFO","msg":"handler: started","stream_id":"4pjzrk8l"}
-{"time":"2025-11-20T16:22:31.071815043Z","level":"INFO","msg":"stream: started","id":"4pjzrk8l"}
-{"time":"2025-11-20T16:22:31.071832213Z","level":"INFO","msg":"writer: started","stream_id":"4pjzrk8l"}
-{"time":"2025-11-20T16:22:31.071839943Z","level":"INFO","msg":"sender: started","stream_id":"4pjzrk8l"}
-{"time":"2025-11-20T17:42:31.629922387Z","level":"ERROR","msg":"HTTP error","status":404,"method":"POST","url":"https://api.wandb.ai/files/jshreeku-purdue-university/Image%20Colorization/4pjzrk8l/file_stream"}
-{"time":"2025-11-20T17:42:31.630018049Z","level":"ERROR+4","msg":"filestream: fatal error: filestream: failed to upload: 404 Not Found path=files/jshreeku-purdue-university/Image Colorization/4pjzrk8l/file_stream: {\"error\":\"run Image Colorization/4pjzrk8l not found while streaming file\"}"}

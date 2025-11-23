@@ -22,14 +22,14 @@ def vae_loss(recon_x, x, mu, logvar):
     return recon_loss + 0.001 * kl_loss
 
 class Trainer_BasicVAE:
-    def __init__(self, train_paths, val_paths, latent_dim, lpips, epochs=50, batch_size=8, learning_rate=1e-3, num_workers=4):
+    def __init__(self, train_paths, val_paths, latent_dim, device, lpips, epochs=50, batch_size=8, learning_rate=1e-3, num_workers=4, **kwargs):
         self.train_paths = train_paths
         self.val_paths = val_paths
         self.epochs = epochs
         self.batch_size = batch_size
         self.learning_rate = learning_rate
         self.num_workers = num_workers
-        self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        self.device = torch.device(f"cuda:{device}" if torch.cuda.is_available() else "cpu")
         self.latent_dim = latent_dim
         self.lpips = lpips
 
@@ -77,7 +77,7 @@ class Trainer_BasicVAE:
                 "val/deltaE": val_metrics["deltaE"],
             })
 
-            torch.save(model.state_dict(), f'./Models/basicvae/saved_model_{epoch+1}.pth')
+            # torch.save(model.state_dict(), f'./Models/basicvae/saved_model_{epoch+1}.pth')
 
     def validate(self, model, val_loader):
         model.eval()

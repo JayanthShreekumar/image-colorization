@@ -22,8 +22,8 @@ def vae_loss(recon_x, x, mu, logvar):
     return recon_loss + 0.0001 * kl_loss
 
 class Trainer_UNetVAE:
-    def __init__(self, train_paths, val_paths, latent_dim, lpips,
-                 epochs=50, batch_size=8, learning_rate=1e-3, num_workers=4):
+    def __init__(self, train_paths, val_paths, latent_dim, device, lpips,
+                 epochs=50, batch_size=8, learning_rate=1e-3, num_workers=4, **kwargs):
 
         self.train_paths = train_paths
         self.val_paths  = val_paths
@@ -34,7 +34,7 @@ class Trainer_UNetVAE:
         self.latent_dim    = latent_dim
         self.lpips = lpips
 
-        self.device = torch.device("cuda:2" if torch.cuda.is_available() else "cpu")
+        self.device = torch.device(f"cuda:{device}" if torch.cuda.is_available() else "cpu")
 
 
     def train(self):
@@ -94,7 +94,7 @@ class Trainer_UNetVAE:
                 "val/deltaE": val_metrics["deltaE"],
             })
             
-            torch.save(model.state_dict(), f'./Models/unetvae/saved_model_{epoch+1}.pth')
+            # torch.save(model.state_dict(), f'./Models/unetvae/saved_model_{epoch+1}.pth')
 
 
     def validate(self, model, val_loader):

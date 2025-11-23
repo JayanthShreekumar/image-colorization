@@ -18,7 +18,7 @@ from metrics import compute_ssim, compute_deltaE
 
 
 class Trainer_UNet_GAN:
-    def __init__(self, train_paths, val_paths, latent_dim, lpips, epochs, batch_size, learning_rate, num_workers):
+    def __init__(self, train_paths, val_paths, latent_dim, device, lpips, epochs, batch_size, learning_rate, num_workers, **kwargs):
         self.epochs = epochs
         self.batch_size = batch_size
         self.learning_rate = learning_rate
@@ -27,7 +27,7 @@ class Trainer_UNet_GAN:
         self.val_paths = val_paths
         self.real_label = 1
         self.fake_label = 0
-        self.device = torch.device("cuda:1" if torch.cuda.is_available() else "cpu")
+        self.device = torch.device(f"cuda:{device}" if torch.cuda.is_available() else "cpu")
         self.lpips = lpips
     
     def weights_init(self, m):
@@ -108,7 +108,7 @@ class Trainer_UNet_GAN:
                         "val/lpips": lpips_val,
                         "val/deltaE": deltaE_val
                     })
-            torch.save(model_G.state_dict(), f'./Models/unetgan/saved_model_' + str(epoch + 1) + '.pth')
+            # torch.save(model_G.state_dict(), f'./Models/unetgan/saved_model_' + str(epoch + 1) + '.pth')
             # torch.save(model_D.state_dict(), f'./Results/RGB_GAN/Discriminator/saved_model_' + str(epoch + 1) + '.pth')
 
 

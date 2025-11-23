@@ -1,1 +1,0 @@
-{"val/val_disc_loss":100,"_timestamp":1.7636566232768612e+09,"_step":3,"train/train_loss":1.7857143878936768,"val/deltaE":19.53626823425293,"train/epoch":4,"_wandb":{"runtime":204},"val/ssim":0.3036295672257741,"train/train_disc_loss":1.7857143878936768,"_runtime":204,"val/val_loss":19.22378052605523,"val/lpips":0.6068532334433662}
