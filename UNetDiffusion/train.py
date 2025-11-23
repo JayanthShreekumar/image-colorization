@@ -50,7 +50,7 @@ class Trainer_DDPM:
         self.lpips = lpips
 
         # diffusion schedule
-        self.T = 100
+        self.T = 1000
         self.betas = make_beta_schedule(self.T).to(self.device)
         self.alphas = 1.0 - self.betas
         self.alpha_bars = torch.cumprod(self.alphas, dim=0).to(self.device)
