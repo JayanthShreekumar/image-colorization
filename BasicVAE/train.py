@@ -77,7 +77,7 @@ class Trainer_BasicVAE:
                 "val/deltaE": val_metrics["deltaE"],
             })
 
-            # torch.save(model.state_dict(), f'./Models/basicvae/saved_model_{epoch+1}.pth')
+        torch.save(model.state_dict(), f'./Models/basicvae/saved_model_{epoch+1}.pth')
 
     def validate(self, model, val_loader):
         model.eval()

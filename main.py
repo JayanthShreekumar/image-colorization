@@ -29,7 +29,7 @@ from metrics import LPIPSWrapper
 import wandb
 wandb.login()
 
-TRAINER_MAP = {
+TRAINER_MAP = {                            # Choose trainer based on what model was selected for training
     "resnet": Trainer_ResNet,
     "unet": Trainer_UNet,
     "gan": Trainer_GAN,
@@ -40,7 +40,7 @@ TRAINER_MAP = {
     "unetddim": Trainer_DDIM,
 }
 
-MODEL_MAP = {
+MODEL_MAP = {                              # Choose model for training
     "resnet": ResNetColorizer,
     "unet": UNetColorizer,
     "gan": GANColorizer,
@@ -51,7 +51,7 @@ MODEL_MAP = {
     "unetddim": UNetDiffusionColorizer
 }
 
-def create_dirs():
+def create_dirs():                         # Create directories to store model weights while training
     os.makedirs("./Models/unet", exist_ok=True)
     os.makedirs("./Models/unetgan", exist_ok=True)
     os.makedirs("./Models/resnet", exist_ok=True)
@@ -61,7 +61,7 @@ def create_dirs():
     os.makedirs("./Models/unetddpm", exist_ok=True)
     os.makedirs("./Models/unetddim", exist_ok=True)
 
-def test_diffusion(model_name, weights_path, steps=50):
+def test_diffusion(model_name, weights_path, steps=50):     # script to test diffusion models, partially tested
     print(f"\n Testing {model_name} weights at epoch {weights_path}\n")
 
     # Load the trainer class
@@ -120,11 +120,11 @@ def test_diffusion(model_name, weights_path, steps=50):
     plt.savefig(save_path, bbox_inches="tight")
     print(f"\nSaved comparison image to: {save_path}\n")
 
-def test(model_name, weights_path):
+def test(model_name, weights_path, latent_dim, num_images=4):       # script to test all models paart from diffusion
     print(f"\n Testing {model_name} weights at epoch {weights_path}\n")
     
     # Load model
-    model = MODEL_MAP[model_name]()
+    model = MODEL_MAP[model_name](latent_dim=latent_dim)
     model.load_state_dict(
         torch.load(f"./Models/{model_name}/saved_model_{weights_path}.pth", map_location="cpu")
     )
@@ -135,7 +135,7 @@ def test(model_name, weights_path):
     test_paths = [os.path.join(test_dir, x) for x in os.listdir(test_dir)]
 
     test_dataset = ColorizeData(paths=test_paths)
-    test_dataloader = DataLoader(test_dataset, batch_size=4, shuffle=False)
+    test_dataloader = DataLoader(test_dataset, batch_size=num_images, shuffle=False)
 
     gray_batch, real_batch = next(iter(test_dataloader))  # one batch of 4 images
     preds = model(gray_batch)                             # forward pass
@@ -143,9 +143,9 @@ def test(model_name, weights_path):
     if model_name in ["basicvae", "unetvae"]:
         preds = preds[0]
     # Plotting
-    fig, ax = plt.subplots(4, 3, figsize=(12, 16))
+    fig, ax = plt.subplots(num_images, 3, figsize=(12, 16))
 
-    for i in range(4):
+    for i in range(num_images):
         # Convert to numpy and transpose
         gray_np = gray_batch[i].cpu().numpy().transpose(1,2,0)
         pred_np = preds[i].detach().cpu().numpy().transpose(1,2,0)
@@ -179,14 +179,15 @@ if __name__ == "__main__":
     parser.add_argument("--seed", type=int, default=8000, help="Random seed")
     parser.add_argument("--model", type=str, default="unet", choices=["resnet", "unet", "gan", "unetgan", "basicvae", "unetvae", "unetddpm", "unetddim"])
     parser.add_argument("--mode", type=str, default="train", choices=["train", "test"])
-    parser.add_argument("--weights", type=int, default=1)
+    parser.add_argument("--weights", type=int, default=100)                 # which saved model weights to use for inference
     parser.add_argument("--batch_size", type=int, default=64)
     parser.add_argument("--epochs", type=int, default=100)
     parser.add_argument("--latent_dim", type=int, default=256)
     parser.add_argument("--device", type=int, default=0)
     parser.add_argument("--learning_rate", type=float, default=0.001)
     parser.add_argument("--steps", type=int, default=50)                    # for ddim
-
+    parser.add_argument("--num_images", type=int, default=4)                # to plot for inference              
+    
     args = parser.parse_args()
 
     create_dirs()
@@ -198,11 +199,11 @@ if __name__ == "__main__":
     paths = np.array(glob.glob(path + "/*.jpg"))
     rand_indices = np.random.permutation(len(paths))
 
-    train_idx, val_idx = rand_indices[:3600], rand_indices[3600:]
+    train_idx, val_idx = rand_indices[:3600], rand_indices[3600:]            # split train and validation from training set
     train_paths = paths[train_idx]
     val_paths = paths[val_idx]
 
-    lpips = LPIPSWrapper(device=torch.device("cuda:0" if torch.cuda.is_available() else "cpu"))
+    lpips = LPIPSWrapper(device=torch.device("cuda:0" if torch.cuda.is_available() else "cpu")) # create LPIPs model for capturing metric
 
     trainer_class = TRAINER_MAP[args.model]
     
@@ -212,10 +213,10 @@ if __name__ == "__main__":
                             learning_rate=args.learning_rate,
                             num_workers=2,
                             steps=args.steps)
-    if args.mode == "train":
+    if args.mode == "train":                                            # training
         
         wandb.init(
-                project="Image Colorization",  # set your W&B project name
+                project="Image Colorization",  # setup wandb to monitor and record all runs
                 config={
                     "seed": args.seed,
                     "epochs": args.epochs,
@@ -231,8 +232,8 @@ if __name__ == "__main__":
         trainer.train()
         wandb.finish()
 
-    elif args.mode == "test":
+    elif args.mode == "test":                                           # testing
         if args.model in ["unetddpm", "unetddim"]:
             test_diffusion(args.model, args.weights, steps=args.steps)
         else:
-            test(args.model, args.weights)
+            test(args.model, args.weights, args.latent_dim, args.num_images)

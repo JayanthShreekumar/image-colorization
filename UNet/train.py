@@ -67,7 +67,7 @@ class Trainer_UNet:
                 "val/lpips": val_metrics["lpips"],
                 "val/deltaE": val_metrics["deltaE"],
             })
-            # torch.save(model.state_dict(), './Models/unet/saved_model_' + str(epoch + 1) + '.pth')
+        torch.save(model.state_dict(), './Models/unet/saved_model_' + str(epoch + 1) + '.pth')
 
 
     def validate(self, model, criterion):

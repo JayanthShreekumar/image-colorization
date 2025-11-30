@@ -68,7 +68,7 @@ class Trainer_ResNet:
                 "val/lpips": val_metrics["lpips"],
                 "val/deltaE": val_metrics["deltaE"],
             })
-            # torch.save(model.state_dict(), './Models/resnet/saved_model_' + str(epoch + 1) + '.pth')
+        torch.save(model.state_dict(), './Models/resnet/saved_model_' + str(epoch + 1) + '.pth')
 
 
     def validate(self, model, criterion):

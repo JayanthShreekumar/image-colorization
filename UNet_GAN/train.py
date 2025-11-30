@@ -108,7 +108,7 @@ class Trainer_UNet_GAN:
                         "val/lpips": lpips_val,
                         "val/deltaE": deltaE_val
                     })
-            # torch.save(model_G.state_dict(), f'./Models/unetgan/saved_model_' + str(epoch + 1) + '.pth')
+        torch.save(model_G.state_dict(), f'./Models/unetgan/saved_model_' + str(epoch + 1) + '.pth')
             # torch.save(model_D.state_dict(), f'./Results/RGB_GAN/Discriminator/saved_model_' + str(epoch + 1) + '.pth')
 
 

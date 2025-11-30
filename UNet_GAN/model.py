@@ -4,7 +4,7 @@ import torch.nn as nn
 
 class NetGen(nn.Module):
     '''Generator'''
-    def __init__(self):
+    def __init__(self, **kwargs):
         super(NetGen, self).__init__()
 
         self.conv1 = nn.Conv2d(1, 64, 3, stride=2, padding=1, bias=False)

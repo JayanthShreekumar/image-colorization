@@ -107,7 +107,7 @@ class Trainer_GAN:
                         "val/deltaE": deltaE_val
                     })
 
-            # torch.save(model_G.state_dict(), './Models/gan/saved_model_' + str(epoch + 1) + '.pth')
+        torch.save(model_G.state_dict(), './Models/gan/saved_model_' + str(epoch + 1) + '.pth')
 
     
     def validate(self, model_D, model_G, criterion, L1):
