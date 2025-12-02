@@ -43,7 +43,9 @@ environment.yml contains the packages needed to run the experiments using Anacon
 
 The runs are recorded for comparison using wandb. An account is needed to monitor the dashboard online: https://docs.wandb.ai/models/quickstart#python.\
 
-METRICS USED: Structural similarity index measure (SSIM), Learned Perceptual Image Patch Similarity (LPIPS), ​Delta E in Lab space (ΔE)​.\
+The in-class presentation slides are uploaded here as a PDF file.
+
+METRICS USED: Structural similarity index measure (SSIM), Learned Perceptual Image Patch Similarity (LPIPS), ​Delta E in Lab space (ΔE)​.
 
 TODO: Train diffusion models and evaluate them thoroughly.
 
