@@ -36,12 +36,12 @@ The dataset is a small one with 3600 training images, 618 validation images, and
 
 Each Model folder has 2 files: \
     model.py which contains the model definition \
-    train.py which contains the training loop \
+    train.py which contains the training loop 
 
 The main.py file takes in arguments from script.sh and creates and trains the chosen model accordingly.\
-environment.yml contains the packages needed to run the experiments using Anaconda. All experiments were tested in python 3.12.\
+environment.yml contains the packages needed to run the experiments using Anaconda. All experiments were tested in python 3.12.
 
-The runs are recorded for comparison using wandb. An account is needed to monitor the dashboard online: https://docs.wandb.ai/models/quickstart#python.\
+The runs are recorded for comparison using wandb. An account is needed to monitor the dashboard online: https://docs.wandb.ai/models/quickstart#python.
 
 The in-class presentation slides are uploaded here as a PDF file.
 
