@@ -1,3 +1,4 @@
+```bash
 # Image Colorization using Deep Learning
 **Folder Structure**
 ./image-colorization/
@@ -29,7 +30,7 @@ metrics.py                  <!-- Metrics code for calculation -->
 nohup.out                   <!-- Stores output of runs when running in background -->
 README.md                   <!-- Instructions -->
 script.sh                   <!-- Script to run all models -->
-
+```
 
 The dataset is a small one with 3600 training images, 618 validation images, and 64 testing images.
 
