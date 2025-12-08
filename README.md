@@ -161,6 +161,8 @@ Structural similarity index measure (SSIM), Learned Perceptual Image Patch Simil
 
 Best results are in bold, 2nd best results are in italics, and 3rd best results are in bold and italics.
 
+Sample generated color images are in the ```Results``` folder.
+
 -------------------------
 
 **FUTURE WORK**
