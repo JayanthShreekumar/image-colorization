@@ -144,7 +144,7 @@ This codebase contains useful model and training code for a plethora of deep gen
 
 **METRICS USED**
 
-Structural similarity index measure (SSIM), Learned Perceptual Image Patch Similarity (LPIPS), ​Delta E in Lab space (ΔE)​.
+Structural similarity index measure (SSIM), Learned Perceptual Image Patch Similarity (LPIPS), ​Delta E in LAB space(ΔE)​.
 
 ------------------------------------------------------------------------------------------------------------------------
 
